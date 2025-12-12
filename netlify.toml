@@ -1,5 +1,7 @@
 [build]
-  command = "npm run build"
+  # Temporary debug: list .netlify and .netlify/output after build to help diagnose
+  # the publish-directory not found error. Remove the extra commands after debugging.
+  command = "npm run build && echo '--- .netlify ---' && ls -la .netlify || true && echo '--- .netlify/output ---' && ls -la .netlify/output || true"
   publish = ".netlify/output/public"
   functions = ".netlify/functions"
 
