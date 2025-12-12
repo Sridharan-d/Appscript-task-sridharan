@@ -1,9 +1,11 @@
 [build]
-  # Temporary debug: list .netlify and .netlify/output after build to help diagnose
-  # the publish-directory not found error. Remove the extra commands after debugging.
-  command = "npm run build && echo '--- .netlify ---' && ls -la .netlify || true && echo '--- .netlify/output ---' && ls -la .netlify/output || true"
-  publish = ".netlify/output/public"
-  functions = ".netlify/functions"
+  command = "npm run build"
+  publish = ".next"
+  functions = "netlify/functions"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
